@@ -64,6 +64,8 @@ flutter:
   assets:
    - assets/labels.txt
    - assets/yolov8.tflite
+   - lib/data/data.json
+   - assets/images/placeholder.png
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg
 

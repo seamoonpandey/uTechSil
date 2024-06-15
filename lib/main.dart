@@ -1,13 +1,14 @@
 import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 import 'package:utechsil/screens/camera_screen.dart';
+import 'package:utechsil/screens/home_screen.dart';
 
-late List<CameraDescription> cameras;
+// late List<CameraDescription> cameras;
 
 Future<Null> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   try {
-    cameras = await availableCameras();
+    // cameras = await availableCameras();
   } on CameraException catch (e) {
     (e.code, e.description);
   }
@@ -42,7 +43,8 @@ class MainScreenState extends State<MainScreen> {
   int _selectedIndex = 1;
 
   static final List<Widget> _widgetOptions = <Widget>[
-    CameraScreen(cameras),
+    // CameraScreen(cameras),
+    const Text('Kamera'),
     const HomeScreen(),
     const SettingsScreen(),
   ];
@@ -78,17 +80,6 @@ class MainScreenState extends State<MainScreen> {
         selectedItemColor: Colors.deepPurple,
         onTap: _onItemTapped,
       ),
-    );
-  }
-}
-
-class HomeScreen extends StatelessWidget {
-  const HomeScreen({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return const Center(
-      child: Text('Home Screen', style: TextStyle(fontSize: 24)),
     );
   }
 }
