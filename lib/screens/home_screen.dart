@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:utechsil/handler/utensils_handler.dart';
 import 'package:utechsil/models/utensil.dart';
+import 'package:utechsil/screens/utensils_detail_screen.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({
@@ -34,29 +35,37 @@ class HomeScreen extends StatelessWidget {
             itemCount: utensils.length,
             itemBuilder: (context, index) {
               final utensil = utensils[index];
-              return Card(
-                child: Column(
-                  children: [
-                    Expanded(
-                      child: Image.network(
-                        utensil.imageUrl ?? 'assets/images/placeholder.png',
-                        fit: BoxFit.cover,
-                        errorBuilder: (context, error, stackTrace) {
-                          return Image.asset(
-                            'assets/images/placeholder.png',
-                            fit: BoxFit.cover,
-                          );
-                        },
+              return GestureDetector(
+                onTap: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => UtensilDetailScreen(utensil)));
+                },
+                child: Card(
+                  child: Column(
+                    children: [
+                      Expanded(
+                        child: Image.network(
+                          utensil.imageUrl ?? 'assets/images/placeholder.png',
+                          fit: BoxFit.cover,
+                          errorBuilder: (context, error, stackTrace) {
+                            return Image.asset(
+                              'assets/images/placeholder.png',
+                              fit: BoxFit.cover,
+                            );
+                          },
+                        ),
                       ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Text(
-                        utensil.name ?? 'Unknown',
-                        style: const TextStyle(fontSize: 16),
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Text(
+                          utensil.name ?? 'Unknown',
+                          style: const TextStyle(fontSize: 16),
+                        ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
               );
             },

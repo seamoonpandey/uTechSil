@@ -1,6 +1,6 @@
 import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
-import 'package:utechsil/screens/camera_screen.dart';
+// import 'package:utechsil/screens/camera_screen.dart';
 import 'package:utechsil/screens/home_screen.dart';
 
 // late List<CameraDescription> cameras;

@@ -5,6 +5,7 @@ class Utensil {
   String? description;
   List<String>? uses;
   List<String>? material;
+  List<String>? subImages;
 
   Utensil({
     this.id,
@@ -13,6 +14,7 @@ class Utensil {
     this.description,
     this.uses,
     this.material,
+    this.subImages,
   });
 
   // Method to convert Utensil instance to JSON map
@@ -30,14 +32,18 @@ class Utensil {
   // Factory constructor to create Utensil instance from JSON map
   factory Utensil.fromJson(Map<String, dynamic> json) {
     return Utensil(
-      id: json['_id'] as String?,
-      name: json['name'] as String?,
-      imageUrl: json['image'] as String? ?? "",
-      description: json['description'] as String?,
-      uses: (json['uses'] as List<dynamic>?)?.map((e) => e as String).toList(),
-      material: (json['material'] as List<dynamic>?)
-          ?.map((e) => e as String)
-          .toList(),
-    );
+        id: json['_id'] as String?,
+        name: json['name'] as String?,
+        imageUrl: json['image'] as String? ?? "",
+        description: json['description'] as String?,
+        uses: (json['uses'] as List<dynamic>?)
+            ?.map((final e) => e as String)
+            .toList(),
+        material: (json['material'] as List<dynamic>?)
+            ?.map((final e) => e as String)
+            .toList(),
+        subImages: (json['subImages'] as List<dynamic>?)
+            ?.map((final e) => e as String)
+            .toList());
   }
 }
