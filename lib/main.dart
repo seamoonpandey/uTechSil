@@ -72,8 +72,8 @@ class MainScreenState extends State<MainScreen> {
             label: 'Home',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.settings),
-            label: 'Settings',
+            icon: Icon(Icons.info),
+            label: 'Info',
           ),
         ],
         currentIndex: _selectedIndex,
