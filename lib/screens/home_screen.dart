@@ -12,11 +12,10 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('All Utensils'),
+        title: const Text('uTECHsil'),
         backgroundColor: Theme.of(context).colorScheme.primary,
         titleTextStyle: const TextStyle(
             color: Colors.white, fontSize: 24, fontWeight: FontWeight.bold),
-        centerTitle: true,
       ),
       body: FutureBuilder<List<Utensil>>(
         future: UtensilHandler.loadUtensils(),

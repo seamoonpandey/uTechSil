@@ -1,14 +1,14 @@
 import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
-// import 'package:utechsil/screens/camera_screen.dart';
+import 'package:utechsil/screens/camera_screen.dart';
 import 'package:utechsil/screens/home_screen.dart';
 
-// late List<CameraDescription> cameras;
+late List<CameraDescription> cameras;
 
 Future<Null> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   try {
-    // cameras = await availableCameras();
+    cameras = await availableCameras();
   } on CameraException catch (e) {
     (e.code, e.description);
   }
@@ -43,8 +43,8 @@ class MainScreenState extends State<MainScreen> {
   int _selectedIndex = 1;
 
   static final List<Widget> _widgetOptions = <Widget>[
-    // CameraScreen(cameras),
-    const Text('Kamera'),
+    CameraScreen(cameras),
+    // const Text('Kamera'),
     const HomeScreen(),
     const SettingsScreen(),
   ];
